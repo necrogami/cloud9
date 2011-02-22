@@ -438,7 +438,7 @@ return ext.register("ext/console/console", {
             case "cd":
                 res = message.body;
                 if (res.cwd) {
-                    this.$cwd = res.cwd;
+                    this.$cwd = res.cwd.replace(ide.workspaceDir, "/workspace");
                     this.write("Working directory changed.");
                 }
                 break;
