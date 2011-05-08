@@ -80,7 +80,7 @@
           
         <a:tree id="trFiles" canrename="true" anchors="0 0 0 0" border="0"
           contextmenu="mnuCtxTree" multiselect="true" reselectable="true"
-          onbeforeremove="return remove()" disabled="{!stServerConnected.active}">
+          onbeforeremove="return remove()">
             <a:each match="[project|file|folder]" sort="[@name]" sort-method="filesort">
                 <a:insert match="[folder]" get="{location.host and davProject.readdir([@path])}" />
                 <a:caption match="[@name]" value="{([../@changed] == 1 ? '*' : '') + [.]}" />
@@ -100,7 +100,7 @@
                 action="tree-append" copy="{event.ctrlKey}" />
         </a:tree>
         
-        <a:menu id="mnuCtxTree" disabled="{!stServerConnected.active}">
+        <a:menu id="mnuCtxTree">
             <a:item match="[file]" class="strong" onclick="
                 require('core/ide').dispatchEvent('openfile', {doc: require('core/ide').createDocument(apf.activeElement.selected)})
             ">Edit</a:item>
