@@ -164,6 +164,8 @@ return ext.register("ext/tree/tree", {
             }
         });
         trFiles.addEventListener("collapse", function(e){
+            if (!e.xmlNode)
+                return;
             delete _self.expandedList[e.xmlNode.getAttribute(apf.xmldb.xmlIdTag)];
             
             if (!_self.loading) {
