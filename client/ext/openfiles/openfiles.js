@@ -16,7 +16,6 @@ return ext.register("ext/openfiles/openfiles", {
     alone           : true,
     type            : ext.GENERAL,
     markup          : markup,
-    offline         : false,
 
     hook : function(){
         panels.register(this);
