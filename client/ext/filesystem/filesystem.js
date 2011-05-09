@@ -86,7 +86,7 @@ return ext.register("ext/filesystem/filesystem", {
                         // @todo: in case of error, show nice alert dialog
                         if (data instanceof Error)
                             throw Error;
-                        
+
                         var strXml = data.match(new RegExp(("(<folder path='" + path 
                                 + "/" + name + "'.*?>)").replace(/\//g, "\\/")))[1];
         
