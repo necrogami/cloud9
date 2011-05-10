@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <a:skin xmlns:a="http://ajax.org/2005/aml" xmlns="http://www.w3.org/1999/xhtml">
-<a:checkbox name="checkbox">
+<a:checkbox name="cboffline">
     <a:style><![CDATA[
         .cboffline {
             width: 55px;

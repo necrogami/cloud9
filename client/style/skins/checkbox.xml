@@ -77,20 +77,20 @@
         </a:main>
     </a:presentation>
 </a:checkbox>
-<a:checkbox name="bgsync">
+<a:checkbox name="cboffline">
     <a:style><![CDATA[
         .cboffline {
             width: 55px;
             height: 21px;
-            background-image: url(images/checkbox.png) no-repeat;
+            background: url(images/sync.png) no-repeat 0 -21px;
         }
 
-        .cbofflineDown .checkbox {
-            background-position : 0 -21px;
+        .cbofflineDown {
+            background-position : 0 0px;
         }
 
-        .cbofflineChecked .checkbox {
-            background-position : 0 -21px;
+        .cbofflineChecked {
+            background-position : 0 0px;
         }
     ]]></a:style>
 
