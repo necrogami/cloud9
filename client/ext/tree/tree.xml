@@ -77,25 +77,15 @@
           icon="refresh.png"
           onclick="require('ext/tree/tree').refresh()" />
         <!--a:button skin="header-btn" icon="order.png" top="-22" right="7"></a:button-->
-
-        <a:hbox
-          anchors  = "0 0 0 0"
-          overflow = "hidden"
-          id       = "hboxTrFiles"
-          class    = "hboxTrFiles"
-        >
-            <a:tree id="trFiles" canrename="true" border="0"
-              contextmenu="mnuCtxTree" multiselect="true" reselectable="true"
-              onbeforeremove="return remove()" disabled="{!stServerConnected.active}"
-              flex="1"
-            >
-                <a:each match="[project|file|folder]" sort="[@name]" sort-method="filesort">
-                    <a:insert match="[folder]" get="{location.host and davProject.readdir([@path])}" />
-                    <a:caption match="[@name]" value="{([../@changed] == 1 ? '*' : '') + [.]}" />
-                    <a:icon match="[folder|project]" value="folder.png" />
-                    <a:icon match="[file]" value="{require('core/util').getFileIcon(%[.])}" />
-                </a:each>
-
+        <a:tree id="trFiles" canrename="true" anchors="0 0 0 0" border="0"
+          contextmenu="mnuCtxTree" multiselect="true" reselectable="true"
+          onbeforeremove="return remove()">
+            <a:each match="[project|file|folder]" sort="[@name]" sort-method="filesort">
+                <a:insert match="[folder]" get="{location.host and davProject.readdir([@path])}" />
+                <a:caption match="[@name]" value="{([../@changed] == 1 ? '*' : '') + [.]}" />
+                <a:icon match="[folder|project]" value="folder.png" />
+                <a:icon match="[file]" value="{require('core/util').getFileIcon(%[.])}" />
+            </a:each>
                 <a:add type="folder" get="{davProject.mkdir([@path], 'New Folder')}" />
                 <a:add type="file" get="{davProject.create([@path], 'New File.txt', '')}" />
                 <a:rename match="[file|folder[not(@path='/workspace')]]" set="{davProject.rename([@name], [@path])}"/>
